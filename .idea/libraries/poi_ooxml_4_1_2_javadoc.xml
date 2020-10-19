@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="poi-ooxml-4.1.2-javadoc">
+    <CLASSES />
+    <JAVADOC>
+      <root url="jar://$PROJECT_DIR$/../mashk/poi-ooxml-4.1.2-javadoc.jar!/" />
+    </JAVADOC>
+    <SOURCES />
+  </library>
+</component>

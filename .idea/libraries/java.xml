@@ -1,0 +1,21 @@
+<component name="libraryTable">
+  <library name="java">
+    <CLASSES />
+    <JAVADOC />
+    <SOURCES>
+      <root url="file://$PROJECT_DIR$/../../../../Program Files/Java/jdk-13.0.2/lib/poi-4.1.2/osgi/src/main/java" />
+      <root url="file://$PROJECT_DIR$/../../../../Program Files/Java/jdk-13.0.2/lib/poi-4.1.2/osgi/src/test/java" />
+      <root url="file://$PROJECT_DIR$/../../../../Program Files/Java/jdk-13.0.2/lib/poi-4.1.2/src/contrib/poi-ruby/java" />
+      <root url="file://$PROJECT_DIR$/../../../../Program Files/Java/jdk-13.0.2/lib/poi-4.1.2/src/examples/src" />
+      <root url="file://$PROJECT_DIR$/../../../../Program Files/Java/jdk-13.0.2/lib/poi-4.1.2/src/excelant/java" />
+      <root url="file://$PROJECT_DIR$/../../../../Program Files/Java/jdk-13.0.2/lib/poi-4.1.2/src/excelant/testcases" />
+      <root url="file://$PROJECT_DIR$/../../../../Program Files/Java/jdk-13.0.2/lib/poi-4.1.2/src/integrationtest" />
+      <root url="file://$PROJECT_DIR$/../../../../Program Files/Java/jdk-13.0.2/lib/poi-4.1.2/src/java" />
+      <root url="file://$PROJECT_DIR$/../../../../Program Files/Java/jdk-13.0.2/lib/poi-4.1.2/src/ooxml/java" />
+      <root url="file://$PROJECT_DIR$/../../../../Program Files/Java/jdk-13.0.2/lib/poi-4.1.2/src/ooxml/testcases" />
+      <root url="file://$PROJECT_DIR$/../../../../Program Files/Java/jdk-13.0.2/lib/poi-4.1.2/src/scratchpad/src" />
+      <root url="file://$PROJECT_DIR$/../../../../Program Files/Java/jdk-13.0.2/lib/poi-4.1.2/src/scratchpad/testcases" />
+      <root url="file://$PROJECT_DIR$/../../../../Program Files/Java/jdk-13.0.2/lib/poi-4.1.2/src/testcases" />
+    </SOURCES>
+  </library>
+</component>
