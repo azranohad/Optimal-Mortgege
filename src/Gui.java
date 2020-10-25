@@ -95,34 +95,49 @@ public class Gui extends JFrame {
         summaryTableButton.addActionListener( new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                SwingUtilities.invokeLater( new Runnable() {
-                    @Override
-                    public void run() {
-                        SummaryList summaryList = new SummaryList(scenarioGenerator.getMixBestLists().getSummaryList());
-                    }
-                } );
+                if (scenarioGenerator.getMixBestLists().getSummaryList().size() == 0) {
+                    System.out.println("the summary list is empty");
+                    return;
+                } else {
+                    SwingUtilities.invokeLater( new Runnable() {
+                        @Override
+                        public void run() {
+                            SummaryList summaryList = new SummaryList(scenarioGenerator.getMixBestLists().getSummaryList());
+                        }
+                    } );
+                }
             }
         } );
         top30Button.addActionListener( new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                SwingUtilities.invokeLater( new Runnable() {
-                    @Override
-                    public void run() {
-                        SummaryList summaryList = new SummaryList(scenarioGenerator.getMixBestLists().getTop30());
-                    }
-                } );
+                if (scenarioGenerator.getMixBestLists().getTop30().size() == 0) {
+                    System.out.println("the Top 30 list is empty");
+                    return;
+                } else {
+                    SwingUtilities.invokeLater( new Runnable() {
+                        @Override
+                        public void run() {
+                            SummaryList summaryList = new SummaryList( scenarioGenerator.getMixBestLists().getTop30() );
+                        }
+                    } );
+                }
             }
         } );
         top30SortMaxButton.addActionListener( new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                SwingUtilities.invokeLater( new Runnable() {
-                    @Override
-                    public void run() {
-                        SummaryList summaryList = new SummaryList(scenarioGenerator.getMixBestLists().getLowMaxMonthRepayMain());
-                    }
-                } );
+                if (scenarioGenerator.getMixBestLists().getLowMaxMonthRepayMain().size() == 0) {
+                    System.out.println("the list is empty");
+                    return;
+                } else {
+                    SwingUtilities.invokeLater( new Runnable() {
+                        @Override
+                        public void run() {
+                            SummaryList summaryList = new SummaryList( scenarioGenerator.getMixBestLists().getLowMaxMonthRepayMain() );
+                        }
+                    } );
+                }
             }
         } );
     }

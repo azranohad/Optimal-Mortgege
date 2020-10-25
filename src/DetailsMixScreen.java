@@ -77,7 +77,6 @@ public class DetailsMixScreen extends JFrame {
 
         JScrollPane calcB = new JScrollPane(calcButton);
         panel1.add( calcB );
-        calcB.set
 
         JScrollPane textField = new JScrollPane(numberPaymentText);
         panel1.add( textField );
