@@ -17,13 +17,13 @@ public class Var5Const extends Var5 implements route {
         double totalPaymentTemp = 0;
         super.setRate( super.rateFromList(dataList.getVariable5ConstTable()) );
 
-        int nperTemp;
+        int nperTemp = super.getNper();
         double pvTemp = super.getPv();
 
         double ratePayment;
         double sumPayment = 0;
 
-        for(nperTemp = super.getNper(); nperTemp > 0; nperTemp--) {
+        for(; nperTemp > 0; nperTemp--) {
             int numOfPayment = super.getNper() - nperTemp + 1;
             double rateUpdate = super.monthlyRateVar( scenario, numOfPayment, dataList.getVariable5ConstTable());
 

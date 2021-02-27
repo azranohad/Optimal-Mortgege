@@ -31,6 +31,7 @@ public class ScenarioGenerator {
      * @throws Exception
      */
     public void result5Routes(DataList dataList) throws Exception {
+        long start = System.currentTimeMillis();
         DynamicTables dynamicTables = new DynamicTables();
         double lastPart1 = 0;
 
@@ -71,6 +72,9 @@ public class ScenarioGenerator {
         }
         System.out.println(iterator);
         mixBestLists.createAllCsvFiles(constraints);
+        long finish = System.currentTimeMillis();
+        long timeElapsed = finish - start;
+        System.out.println(timeElapsed);
 /*
         clearEnd( dynamicTables, mixBestLists );
 */

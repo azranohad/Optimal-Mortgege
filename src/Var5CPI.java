@@ -22,7 +22,7 @@ public class Var5CPI extends Var5 implements route {
         double rateTemp = rateFromList(dataList.getVariable5CPITable());
         super.setRate( rateTemp );
 
-        int nperTemp;
+        int nperTemp = getNper();
         double pvTemp = 0;
         switch (scenario) {
             case 1:
@@ -39,7 +39,7 @@ public class Var5CPI extends Var5 implements route {
         double ratePayment;
         double sumPayment = 0;
 
-        for(nperTemp = getNper(); nperTemp > 0; nperTemp--) {
+        for(; nperTemp > 0; nperTemp--) {
             int numOfPayment = getNper() - nperTemp + 1;
             double rateUpdate = monthlyRateVar( scenario, numOfPayment, dataList.getVariable5CPITable());
 

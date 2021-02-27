@@ -32,13 +32,13 @@ public class DataList {
         this.cpiData = table360Factory.getForecastTable( "csvCPI.csv", 480 );
         this.primeData = table360Factory.getForecastTable( "csvPrime.csv", 480 );
         RateFactoryFromWeb katz = new RateFactoryFromWeb();
-        this.katzTable = katz.rateSplit( "https://supermarker.themarker.com/Mortgage/CompareMortgage.aspx?Years=6&Product=3&SUM=1060000&Type=" );
+        this.katzTable = katz.rateSplit( "https://www.supermarker.themarker.com/Mortgage/CompareMortgage.aspx?Years=6&Product=3&SUM=1060000&Type=" );
         RateFactoryFromWeb kalatz = new RateFactoryFromWeb();
-        this.kalatzTable = kalatz.rateSplit( "https://supermarker.themarker.com/Mortgage/CompareMortgage.aspx?Years=6&Product=4&SUM=1060000&Type=");
+        this.kalatzTable = kalatz.rateSplit( "https://www.supermarker.themarker.com/Mortgage/CompareMortgage.aspx?Years=6&Product=4&SUM=1060000&Type=");
         RateFactoryFromWeb variable5CPI = new RateFactoryFromWeb();
-        this.variable5CPITable = variable5CPI.rateSplit( "https://supermarker.themarker.com/Mortgage/CompareMortgage.aspx?Years=6&Product=6&SUM=1060000&Type=");
+        this.variable5CPITable = variable5CPI.rateSplit( "https://www.supermarker.themarker.com/Mortgage/CompareMortgage.aspx?Years=6&Product=6&SUM=1060000&Type=");
         RateFactoryFromWeb variable5Const = new RateFactoryFromWeb();
-        this.variable5ConstTable = variable5Const.rateSplit( "https://supermarker.themarker.com/Mortgage/CompareMortgage.aspx?Years=6&Product=69&SUM=1060000&Type=");
+        this.variable5ConstTable = variable5Const.rateSplit( "https://www.supermarker.themarker.com/Mortgage/CompareMortgage.aspx?Years=6&Product=69&SUM=1060000&Type=");
     }
 
     public void setCpiData(List<ThreeLevel> cpiData) {

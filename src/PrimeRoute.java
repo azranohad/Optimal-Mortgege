@@ -13,12 +13,12 @@ public class PrimeRoute extends BaseRoute implements route {
 
         super.setRate( dataList.getPrimeData().get( 0 ).getMain() - super.getCustomerData().getPrimeDecrease());
 
-        int nperTemp;
+        int nperTemp = super.getNper();
         double pvTemp = super.getPv();
         double ratePayment;
         double sumPayment = 0;
 
-        for(nperTemp = super.getNper(); nperTemp > 0; nperTemp--) {
+        for(;nperTemp > 0; nperTemp--) {
             int numOfPayment = super.getNper() - nperTemp  + 1;
             double rateTemp = 0;
             switch (scenario) {

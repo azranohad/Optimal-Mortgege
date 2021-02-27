@@ -20,7 +20,7 @@ public class Katz extends BaseRoute implements route {
         super.setRate( rateTemp );
 
 
-        int nperTemp;
+        int nperTemp = super.getNper();
         double pvTemp = 0;
         switch (scenario) {
             case 1:
@@ -37,7 +37,7 @@ public class Katz extends BaseRoute implements route {
         double ratePayment;
         double sumPayment = 0;
 
-        for(nperTemp = super.getNper(); nperTemp > 0; nperTemp--) {
+        for(; nperTemp > 0; nperTemp--) {
             int numOfPayment = super.getNper() - nperTemp  + 1;
 
             ratePayment = pvTemp * (rateTemp / 1200);
@@ -49,7 +49,7 @@ public class Katz extends BaseRoute implements route {
             if (monthlyRepayment > maxMonthRepayment) {
                 maxMonthRepayment = monthlyRepayment;
             }
-            LinePaymentData linePaymentDataTemp = new LinePaymentData( numOfPayment, pvTemp, monthlyRepayment,
+            LinePaymentData linePaymentDataTemp = new LinePaymentData(numOfPayment, pvTemp, monthlyRepayment,
                     fundPayment, ratePayment, sumPayment);
             totalPaymentTemp = totalPaymentTemp + monthlyRepayment;
 

@@ -16,13 +16,13 @@ public class Kalatz extends BaseRoute implements route {
         super.setRate( rateTemp );
 
         double monthlyRate = rateTemp / 1200;
-        int nperTemp;
+        int nperTemp = super.getNper();
         double pvTemp = super.getPv();
         double ratePayment;
         double sumPayment = 0;
 
         //Loop of all payments.
-        for (nperTemp = super.getNper(); nperTemp > 0; nperTemp--) {
+        for (; nperTemp > 0; nperTemp--) {
 
             ratePayment = pvTemp * monthlyRate;
             double monthlyRepayment = calculatePmt( pvTemp, rateTemp, nperTemp );
