@@ -55,88 +55,88 @@ public class MixBestLists {
      * @return new export data with data from mix.
      */
     public ExportData createExportData(MixBase mix) throws Exception {
-        ExportData exportDate = new ExportData();
+        ExportData exportData = new ExportData();
 
 
-        exportDate.setProperty( (int) mix.getCustomerData().getProperty() );
-        exportDate.setMortgage( (int) mix.getMortgage() );
-        exportDate.setFirstMonthlyRepaymentDesirable( mix.getFirstMonthlyRepaymentDesirable() );
-        exportDate.setMaxMonthlyRepaymentWorstDesirable( mix.getMaxMonthRepaymentWorstDesirable() );
-        exportDate.setPrimeDecrease( mix.getPrimeDecrease() );
-        exportDate.setPercentage();
-        exportDate.setDiffNperFactor( mix.getCustomerData().getDiffNperFactor() );
-        exportDate.setRateCustomer( mix.getRateCustomer() );
-        exportDate.setMergeListMain( mix.getLinePaymentDataMergeMainOpt() );
-        exportDate.setMergeListWorst( mix.getLinePaymentDataMergeWorstOpt() );
+        exportData.setProperty( (int) mix.getCustomerData().getProperty() );
+        exportData.setMortgage( (int) mix.getMortgage() );
+        exportData.setFirstMonthlyRepaymentDesirable( mix.getFirstMonthlyRepaymentDesirable() );
+        exportData.setMaxMonthlyRepaymentWorstDesirable( mix.getMaxMonthRepaymentWorstDesirable() );
+        exportData.setPrimeDecrease( mix.getPrimeDecrease() );
+        exportData.setPercentage();
+        exportData.setDiffNperFactor( mix.getCustomerData().getDiffNperFactor() );
+        exportData.setRateCustomer( mix.getRateCustomer() );
+        exportData.setMergeListMain( mix.getLinePaymentDataMergeMainOpt() );
+        exportData.setMergeListWorst( mix.getLinePaymentDataMergeWorstOpt() );
 
 
-        exportDate.setAllTotalPaymentMain( mix.getTotalPaymentMain() );
-        exportDate.setAllTotalPaymentWorst( mix.getTotalPaymentWorst() );
-        exportDate.setAllRateTotalPaymentMain( mix.totalRatePaymentMain() );
-        exportDate.setAllRateTotalPaymentWorst( mix.getTotalRatePaymentWorst() );
-        exportDate.setMaxMonthRepayMain( mix.getMaxMonthRepaymentMainOpt() );
-        exportDate.setMaxMonthRepayWorst( mix.getMaxMonthRepaymentWorstOpT() );
-        exportDate.setAllFirstMonthRepayment( mix.getFirstMonthlyRepayment() );
+        exportData.setAllTotalPaymentMain( mix.getTotalPaymentMain() );
+        exportData.setAllTotalPaymentWorst( mix.getTotalPaymentWorst() );
+        exportData.setAllRateTotalPaymentMain( mix.totalRatePaymentMain() );
+        exportData.setAllRateTotalPaymentWorst( mix.getTotalRatePaymentWorst() );
+        exportData.setMaxMonthRepayMain( mix.getMaxMonthRepaymentMainOpt() );
+        exportData.setMaxMonthRepayWorst( mix.getMaxMonthRepaymentWorstOpT() );
+        exportData.setAllFirstMonthRepayment( mix.getFirstMonthlyRepayment() );
 
-        exportDate.setKalatz( mix.getKalatzOpt() );
-        exportDate.setKalatzName( mix.getKalatzOpt().getName() );
-        exportDate.setKalatzRate( mix.getKalatzOpt().getRate() );
-        exportDate.setKalatzNper( mix.getKalatzOpt().getNper() );
-        exportDate.setKalatzPv( mix.getKalatzOpt().getPv() );
-        exportDate.setKalatzFirstMonthRepayment( mix.getKalatzOpt().firstMonthRepay() );
-        exportDate.setKalatzProp( mix.getPart1() );
-        exportDate.setKalatzTotalPaymentMain(mix.getKalatzOpt().getTotalPaymentMain()  );
-        exportDate.setKalatzTotalPaymentRateKalatz( mix.getKalatzOpt().getTotalRatePaymentMain() );
+        exportData.setKalatz( mix.getKalatzOpt() );
+        exportData.setKalatzName( mix.getKalatzOpt().getName() );
+        exportData.setKalatzRate( mix.getKalatzOpt().getRate() );
+        exportData.setKalatzNper( mix.getKalatzOpt().getNper() );
+        exportData.setKalatzPv( mix.getKalatzOpt().getPv() );
+        exportData.setKalatzFirstMonthRepayment( mix.getKalatzOpt().firstMonthRepay() );
+        exportData.setKalatzProp( mix.getPart1() );
+        exportData.setKalatzTotalPaymentMain(mix.getKalatzOpt().getTotalPaymentMain()  );
+        exportData.setKalatzTotalPaymentRateKalatz( mix.getKalatzOpt().getTotalRatePaymentMain() );
 
-        exportDate.setKatz( mix.getKatzOpt() );
-        exportDate.setKatzName( mix.getKatzOpt().getName() );
-        exportDate.setKatzRate( mix.getKatzOpt().getRate() );
-        exportDate.setKatzNper( mix.getKatzOpt().getNper() );
-        exportDate.setKatzPv( mix.getKatzOpt().getPv() );
-        exportDate.setKatzFirstMonthRepayment( mix.getKatzOpt().firstMonthRepay() );
-        exportDate.setKatzProp( mix.getPart2() );
-        exportDate.setKatzTotalPaymentMain( mix.getKatzOpt().getTotalPaymentMain() );
-        exportDate.setKatzTotalRateMain( mix.getKatzOpt().getTotalRatePaymentMain() );
-        exportDate.setKatzTotalPaymentWorst( mix.getKatzOpt().getTotalPaymentWorst() );
-        exportDate.setKatzTotalRateWorst( mix.getKatzOpt().getTotalRatePaymentWorst() );
+        exportData.setKatz( mix.getKatzOpt() );
+        exportData.setKatzName( mix.getKatzOpt().getName() );
+        exportData.setKatzRate( mix.getKatzOpt().getRate() );
+        exportData.setKatzNper( mix.getKatzOpt().getNper() );
+        exportData.setKatzPv( mix.getKatzOpt().getPv() );
+        exportData.setKatzFirstMonthRepayment( mix.getKatzOpt().firstMonthRepay() );
+        exportData.setKatzProp( mix.getPart2() );
+        exportData.setKatzTotalPaymentMain( mix.getKatzOpt().getTotalPaymentMain() );
+        exportData.setKatzTotalRateMain( mix.getKatzOpt().getTotalRatePaymentMain() );
+        exportData.setKatzTotalPaymentWorst( mix.getKatzOpt().getTotalPaymentWorst() );
+        exportData.setKatzTotalRateWorst( mix.getKatzOpt().getTotalRatePaymentWorst() );
 
-        exportDate.setVar5CPI( mix.getVar5CPIOpt() );
-        exportDate.setVar5CpiName( mix.getVar5CPIOpt().getName() );
-        exportDate.setVar5CpiRate( mix.getVar5CPIOpt().getRate() );
-        exportDate.setVar5CpiNper( mix.getVar5CPIOpt().getNper() );
-        exportDate.setVar5CpiPv( mix.getVar5CPIOpt().getPv() );
-        exportDate.setVar5CpiFirstMonthRepayment( mix.getVar5CPIOpt().firstMonthRepay() );
-        exportDate.setVar5CpiProp( mix.getPart3() );
-        exportDate.setVar5CpiTotalPaymentMain( mix.getVar5CPIOpt().getTotalPaymentMain() );
-        exportDate.setVar5CpiTotalRateMain( mix.getVar5CPIOpt().getTotalRatePaymentMain() );
-        exportDate.setVar5CpiTotalPaymentWorst( mix.getVar5CPIOpt().getTotalPaymentWorst() );
-        exportDate.setVar5CpiTotalRateWorst( mix.getVar5CPIOpt().getTotalRatePaymentWorst() );
+        exportData.setVar5CPI( mix.getVar5CPIOpt() );
+        exportData.setVar5CpiName( mix.getVar5CPIOpt().getName() );
+        exportData.setVar5CpiRate( mix.getVar5CPIOpt().getRate() );
+        exportData.setVar5CpiNper( mix.getVar5CPIOpt().getNper() );
+        exportData.setVar5CpiPv( mix.getVar5CPIOpt().getPv() );
+        exportData.setVar5CpiFirstMonthRepayment( mix.getVar5CPIOpt().firstMonthRepay() );
+        exportData.setVar5CpiProp( mix.getPart3() );
+        exportData.setVar5CpiTotalPaymentMain( mix.getVar5CPIOpt().getTotalPaymentMain() );
+        exportData.setVar5CpiTotalRateMain( mix.getVar5CPIOpt().getTotalRatePaymentMain() );
+        exportData.setVar5CpiTotalPaymentWorst( mix.getVar5CPIOpt().getTotalPaymentWorst() );
+        exportData.setVar5CpiTotalRateWorst( mix.getVar5CPIOpt().getTotalRatePaymentWorst() );
 
-        exportDate.setVar5Const( mix.getVar5ConstOpt() );
-        exportDate.setVar5ConstName( mix.getVar5ConstOpt().getName() );
-        exportDate.setVar5ConstRate( mix.getVar5ConstOpt().getRate() );
-        exportDate.setVar5ConstNper( mix.getVar5ConstOpt().getNper() );
-        exportDate.setVar5ConstPv( mix.getVar5ConstOpt().getPv() );
-        exportDate.setVar5ConstFirstMonthRepayment( mix.getVar5ConstOpt().firstMonthRepay() );
-        exportDate.setVar5ConstProp( mix.getPart4() );
-        exportDate.setVar5ConstTotalPaymentMain( mix.getVar5ConstOpt().getTotalPaymentMain() );
-        exportDate.setVar5ConstTotalRateMain( mix.getVar5ConstOpt().getTotalRatePaymentMain() );
-        exportDate.setVar5ConstTotalPaymentWorst( mix.getVar5ConstOpt().getTotalPaymentWorst() );
-        exportDate.setVar5ConstTotalRateWorst( mix.getVar5ConstOpt().getTotalRatePaymentWorst() );
+        exportData.setVar5Const( mix.getVar5ConstOpt() );
+        exportData.setVar5ConstName( mix.getVar5ConstOpt().getName() );
+        exportData.setVar5ConstRate( mix.getVar5ConstOpt().getRate() );
+        exportData.setVar5ConstNper( mix.getVar5ConstOpt().getNper() );
+        exportData.setVar5ConstPv( mix.getVar5ConstOpt().getPv() );
+        exportData.setVar5ConstFirstMonthRepayment( mix.getVar5ConstOpt().firstMonthRepay() );
+        exportData.setVar5ConstProp( mix.getPart4() );
+        exportData.setVar5ConstTotalPaymentMain( mix.getVar5ConstOpt().getTotalPaymentMain() );
+        exportData.setVar5ConstTotalRateMain( mix.getVar5ConstOpt().getTotalRatePaymentMain() );
+        exportData.setVar5ConstTotalPaymentWorst( mix.getVar5ConstOpt().getTotalPaymentWorst() );
+        exportData.setVar5ConstTotalRateWorst( mix.getVar5ConstOpt().getTotalRatePaymentWorst() );
 
-        exportDate.setPrime( mix.getPrimeOpt() );
-        exportDate.setPrimeName( mix.getPrimeOpt().getName() );
-        exportDate.setPrimeRate( mix.getPrimeOpt().getRate() );
-        exportDate.setPrimeNper( mix.getPrimeOpt().getNper() );
-        exportDate.setPrimePv( mix.getPrimeOpt().getPv() );
-        exportDate.setPrimeFirstMonthRepayment( mix.getPrimeOpt().firstMonthRepay() );
-        exportDate.setPrimeProp( mix.getPrimeOpt().getPv() / mix.getMortgage() );
-        exportDate.setPrimeTotalPaymentMain( mix.getPrimeOpt().getTotalPaymentMain() );
-        exportDate.setPrimeTotalRateMain( mix.getPrimeOpt().getTotalRatePaymentMain() );
-        exportDate.setPrimeTotalPaymentWorst( mix.getPrimeOpt().getTotalPaymentWorst() );
-        exportDate.setPrimeTotalRateWorst( mix.getPrimeOpt().getTotalRatePaymentWorst() );
+        exportData.setPrime( mix.getPrimeOpt() );
+        exportData.setPrimeName( mix.getPrimeOpt().getName() );
+        exportData.setPrimeRate( mix.getPrimeOpt().getRate() );
+        exportData.setPrimeNper( mix.getPrimeOpt().getNper() );
+        exportData.setPrimePv( mix.getPrimeOpt().getPv() );
+        exportData.setPrimeFirstMonthRepayment( mix.getPrimeOpt().firstMonthRepay() );
+        exportData.setPrimeProp( mix.getPrimeOpt().getPv() / mix.getMortgage() );
+        exportData.setPrimeTotalPaymentMain( mix.getPrimeOpt().getTotalPaymentMain() );
+        exportData.setPrimeTotalRateMain( mix.getPrimeOpt().getTotalRatePaymentMain() );
+        exportData.setPrimeTotalPaymentWorst( mix.getPrimeOpt().getTotalPaymentWorst() );
+        exportData.setPrimeTotalRateWorst( mix.getPrimeOpt().getTotalRatePaymentWorst() );
 
-        return exportDate;
+        return exportData;
     }
 
     /**
