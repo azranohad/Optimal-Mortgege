@@ -10,10 +10,10 @@ public class ScenarioGenerator {
     private final Setting setting;
     private MixBestLists mixBestLists;
     private final double epsilon = Math.pow( 10, -4 );
-    private double partKalatz;
-    private double partKatz;
-    private double partVar5Cpi;
-    private double partVar5Const;
+    private double part1;
+    private double part2;
+    private double part3;
+    private double part4;
 
 
     /**
@@ -33,39 +33,39 @@ public class ScenarioGenerator {
     public void result5Routes(DataList dataList) throws Exception {
         long start = System.currentTimeMillis();
         DynamicTables dynamicTables = new DynamicTables();
-        double lastpartKalatz = 0;
+        double lastPart1 = 0;
 
         this.mixBestLists = new MixBestLists();
         double epsilon  = Math.pow( 10, -4 );
         int iterator = 0;
         //kalatz.
-        for (partKalatz = setting.getMinimumKalatz(); partKalatz <= setting.getMaximumNonPrime(); partKalatz = partKalatz + setting.getSizeOfJump()) {
+        for (part1 = setting.getMinimumKalatz(); part1 <= setting.getMaximumNonPrime(); part1 = part1 + setting.getSizeOfJump()) {
             //katz.
-            for (partKatz = 0 ; partKatz <= setting.getMaximumNonPrime(); partKatz = partKatz + setting.getSizeOfJump()) {
+            for (part2 = 0 ; part2 <= setting.getMaximumNonPrime(); part2 = part2 + setting.getSizeOfJump()) {
                 //var5Cpi.
-                for (partVar5Cpi = 0; partVar5Cpi <= setting.getMaximumNonPrime(); partVar5Cpi = partVar5Cpi + setting.getSizeOfJump() ) {
+                for (part3 = 0; part3 <= setting.getMaximumNonPrime(); part3 = part3 + setting.getSizeOfJump() ) {
                     //var5Const.
-                    for (partVar5Const = 0 ; partVar5Const <= setting.getMaximumNonPrime(); partVar5Const = partVar5Const + setting.getSizeOfJump()) {
-                        if (Math.abs ((partKalatz + partKatz + partVar5Cpi + partVar5Const) - 0.7) > epsilon) {
+                    for (part4 = 0 ; part4 <= setting.getMaximumNonPrime(); part4 = part4 + setting.getSizeOfJump()) {
+                        if (Math.abs ((part1 + part2 + part3 + part4) - 0.7) > epsilon) {
                             continue;
-                        } else if ((partVar5Cpi + partVar5Const) > setting.getMaximumVar5() + epsilon) {
+                        } else if ((part3 + part4) > setting.getMaximumVar5() + epsilon) {
                             continue;
-                        } else if ((partVar5Cpi + partKatz) > setting.getMaximumCPI() + epsilon) {
+                        } else if ((part3 + part2) > setting.getMaximumCPI() + epsilon) {
                             continue;
                         }
                         iterator++;
                         CustomerData customerDataTemp = new CustomerData( customerData );
-                        customerDataTemp.setRateCustomer( improveRateCustomer());
+                        customerDataTemp.setRateCustomer( improveRateCustomer( part3, part4, part2 ) );
                         Constraints constraints1 = new Constraints( customerDataTemp, setting );
                         MixBase mix = new MixBase( "mixTemp", constraints1,
-                                partKalatz, partKatz, partVar5Cpi, partVar5Const, customerData.getPrimeDecrease(), dataList);
+                                part1, part2, part3, part4, customerData.getPrimeDecrease(), dataList);
                         mix.optimizationAllRoute(dynamicTables);
                         if (mix.isConditions()){
                             mixBestLists.sortMixToTheList( mix );
                         }
-                        clearMemoryList( lastpartKalatz, dynamicTables );
+                        clearMemoryList( lastPart1, dynamicTables );
                         dynamicTables.clearList(setting);
-                        lastpartKalatz = partKalatz;
+                        lastPart1 = part1;
                     }
                 }
             }
@@ -82,14 +82,14 @@ public class ScenarioGenerator {
 
     /**
      * Clears the track calculation memory while running so as not to flood the memory.
-     * @param lastpartKalatz
+     * @param lastPart1
      * @param dynamicTables
      */
-    public void clearMemoryList (double lastpartKalatz, DynamicTables dynamicTables) {
+    public void clearMemoryList (double lastPart1, DynamicTables dynamicTables) {
         /**
          * Deletes the memory of the previous run on the rout kalatz.
          */
-        if (Math.abs( partKalatz - lastpartKalatz ) > epsilon) {
+        if (Math.abs( part1 - lastPart1 ) > epsilon) {
            dynamicTables.getKalatzList().remove( 0 );
             /**
              * These loops check if there is an amount that we may no
@@ -97,19 +97,19 @@ public class ScenarioGenerator {
              */
 
             dynamicTables.getKatzList().sort( Comparator.comparingDouble( PvSplit::getPartKey ) );
-            while ((dynamicTables.getKatzList().size() != 0) && (partKalatz + dynamicTables.getKatzList().get( dynamicTables.getKatzList().size() - 1 )
+            while ((dynamicTables.getKatzList().size() != 0) && (part1 + dynamicTables.getKatzList().get( dynamicTables.getKatzList().size() - 1 )
                     .getPartKey() > setting.getMaximumNonPrime()) ) {
                 dynamicTables.getKatzList().remove( dynamicTables.getKatzList().size() - 1 );
             }
 
             dynamicTables.getVar5CpiList().sort( Comparator.comparingDouble( PvSplit::getPartKey ) );
-            while ( (dynamicTables.getVar5CpiList().size() != 0) && (partKalatz + dynamicTables.getVar5CpiList().get( dynamicTables.getVar5CpiList().size() - 1 )
+            while ( (dynamicTables.getVar5CpiList().size() != 0) && (part1 + dynamicTables.getVar5CpiList().get( dynamicTables.getVar5CpiList().size() - 1 )
                     .getPartKey() > setting.getMaximumNonPrime())) {
                 dynamicTables.getVar5CpiList().remove( dynamicTables.getVar5CpiList().size() - 1);
             }
 
             dynamicTables.getVar5ConstList().sort( Comparator.comparingDouble( PvSplit::getPartKey ) );
-            while ((dynamicTables.getVar5ConstList().size() != 0) && (partKalatz + dynamicTables.getVar5ConstList().get( dynamicTables.getVar5ConstList().size() - 1 )
+            while ((dynamicTables.getVar5ConstList().size() != 0) && (part1 + dynamicTables.getVar5ConstList().get( dynamicTables.getVar5ConstList().size() - 1 )
                     .getPartKey() > setting.getMaximumNonPrime())) {
                 dynamicTables.getVar5ConstList().remove( dynamicTables.getVar5ConstList().size() - 1);
             }
@@ -133,31 +133,24 @@ public class ScenarioGenerator {
      * @return new rate customer.
      */
 
-    public int improveRateCustomer() {
+    public int improveRateCustomer(double var5CpiPart, double var5ConstPart, double katzPart ) {
         int rateCustomerUpdate = customerData.getRateCustomer();
-        double var5Part = partVar5Const + partVar5Cpi;
+        double var5Part = var5ConstPart + var5CpiPart;
 
-        if ((partVar5Cpi >= 0.1) && (partVar5Cpi < 0.3)) {
+        if ((var5CpiPart >= 0.1) && (var5CpiPart < 0.3)) {
             rateCustomerUpdate = customerData.getRateCustomer() - 1;
-        } else if ((partVar5Cpi >= 0.3) && (partVar5Cpi < 0.5)) {
+        } else if ((var5CpiPart >= 0.3) && (var5CpiPart < 0.5)) {
             rateCustomerUpdate = customerData.getRateCustomer() - 2;
-        } else if (partVar5Cpi >= 0.5) {
+        } else if (var5CpiPart >= 0.5) {
             rateCustomerUpdate = customerData.getRateCustomer() - 3;
-        } else if ((partVar5Const >= 0.2) && (partVar5Const < 0.4)) {
+        } else if ((var5ConstPart >= 0.2) && (var5ConstPart < 0.4)) {
             rateCustomerUpdate = customerData.getRateCustomer() - 1;
         } else if (var5Part >= 0.2) {
             rateCustomerUpdate = customerData.getRateCustomer() - 1;
-        }
-        if (partKatz >= 0.4) {
-            rateCustomerUpdate = customerData.getRateCustomer() - 2;
-        } else if (partKatz >= 0.15) {
+        } else if (katzPart >= 0.3) {
             rateCustomerUpdate = customerData.getRateCustomer() - 1;
         }
-        if (partKalatz > 0.44) {
-            rateCustomerUpdate = customerData.getRateCustomer() + 2;
-        } else if (partKalatz > 0.34) {
-            rateCustomerUpdate = customerData.getRateCustomer() + 1;
-        }
+
         if (rateCustomerUpdate < 1) {
             rateCustomerUpdate = 1;
         }
@@ -188,35 +181,35 @@ public class ScenarioGenerator {
         return epsilon;
     }
 
-    public double getPartKalatz() {
-        return partKalatz;
+    public double getPart1() {
+        return part1;
     }
 
-    public void setPartKalatz(double partKalatz) {
-        this.partKalatz = partKalatz;
+    public void setPart1(double part1) {
+        this.part1 = part1;
     }
 
-    public double getPartKatz() {
-        return partKatz;
+    public double getPart2() {
+        return part2;
     }
 
-    public void setPartKatz(double partKatz) {
-        this.partKatz = partKatz;
+    public void setPart2(double part2) {
+        this.part2 = part2;
     }
 
-    public double getPartVar5Cpi() {
-        return partVar5Cpi;
+    public double getPart3() {
+        return part3;
     }
 
-    public void setPartVar5Cpi(double partVar5Cpi) {
-        this.partVar5Cpi = partVar5Cpi;
+    public void setPart3(double part3) {
+        this.part3 = part3;
     }
 
-    public double getPartVar5Const() {
-        return partVar5Const;
+    public double getPart4() {
+        return part4;
     }
 
-    public void setPartVar5Const(double partVar5Const) {
-        this.partVar5Const = partVar5Const;
+    public void setPart4(double part4) {
+        this.part4 = part4;
     }
 }

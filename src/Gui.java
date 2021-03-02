@@ -54,7 +54,7 @@ public class Gui extends JFrame {
                 }
 
                 if (setDefaultCheckBox.isSelected() == true) {
-                    customerData = new CustomerData( 2500000,1200000, 6000, 9500, 3, 0.5, 0.3 );
+                    customerData = new CustomerData( 3800000,2000000, 8000, 12000, 4, 0.6, 0.3 );
                 } else {
                     int property = (int) (Double.parseDouble( propertyText.getText() ));
                     int mortgage = (int) (Double.parseDouble( mortgageText.getText() ));
